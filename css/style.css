@@ -1,0 +1,119 @@
+html {
+    background-color: #133C55;
+}
+
+.p-white {
+    color: white;
+}
+
+.navbar-brand {
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.navbar {
+    border-bottom: solid 0.7px #386FA4;
+}
+
+.footer {
+    display: block;
+    border-top: solid 0.7px #386FA4;
+    background-color: #133C55 !important;
+}
+
+.bgcolour-main {
+    background-color: #133C55;
+}
+
+.bgcolour-main-l {
+    background-color: #59A5D8;
+}
+
+.bgcolour-main-l2 {
+    background-color: #84D2F6;
+}
+
+.bgcolour-main-Dark {
+    background-color: #133C55;
+}
+
+.btn-primary-passgen {
+    background-color: #386fa4;
+    color: white;
+}
+
+.btn-primary-passgen:active {
+    background-color: #28547c;
+    color: white;
+}
+
+.btn-primary-passgen:hover {
+    background-color: #28547c;
+    color: white;
+}
+
+.btn-secondary-passgen {
+    background-color: #59A5D8;
+    color: white;
+}
+
+.btn-secondary-passgen:active {
+    background-color: #4382ac;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #4382ac;
+    color: white !important;
+}
+
+.viewport {
+    max-width: 640px;
+    margin: auto;
+}
+
+hr {
+    border: solid 0.7px #133C55;
+    width: 100%;
+}
+
+.marginauto {
+    display: block;
+    margin: auto;
+    display: block;
+}
+
+input {
+    background-color: transparent;
+    outline: white;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.sticky-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 1em;
+}
+
+footer>a:link {
+    text-decoration: none;
+}
+
+footer>a:hover {
+    text-decoration: underline;
+}
+
+.banner-img {
+    position: fixed;
+    width: 100%;
+    opacity: 0.2;
+}

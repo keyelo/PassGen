@@ -1,0 +1,86 @@
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2023 Sean Leitch | Keyelo
+
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="favicon.ico" rel="icon">
+
+    <!-- Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <title>PassGen | Keyelo</title>
+</head>
+
+<body class="bgcolour-main" onload="hidePasswordDefault()">
+    <nav class="navbar navbar-expand-lg navbar-dark bgcolour-main-Dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">PassGen</a>
+        </div>
+    </nav>
+
+    <div class=" viewport p-3" data-aos="zoom-in">
+        <h2 class="display-6 text-white">Utiliza esta herramienta para generar contraseñas seguras</h2>
+        <br>
+        <form id="form" class="text-white">
+            <label for="passwordLength">Selecciona la longitud de la contraseña:</label>
+            <select id="passwordLength" name="passwordLength">
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+            </select>
+        </form>
+
+        <br><br>
+
+        <input type="text" id="generatedPass" value="" class="input-group-text" placeholder="contraseña" readonly>
+
+
+        <br><br>
+
+
+        <button onclick="generatePassword();" class="btn btn-primary-passgen  mr-2 mb-2">Generar</button>
+
+        <button onclick="copyText();" class="btn btn-secondary-passgen ml-2 mr-2 mb-2">Copiar Contraseña</button>
+
+    </div>
+
+    <hr>
+
+    <footer class="footer text-center text-white sticky-bottom">
+        <a href="http://github.com/keyelo">
+            <p class="text-white">© Copyright Keyelo</p>
+        </a>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/passwordGeneratorMin.js"></script>
+</body>
+
+</html>
