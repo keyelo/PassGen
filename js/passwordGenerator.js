@@ -8,11 +8,12 @@ Copyright (c) 2023 Sean Leitch | Keyelo
 function hidePasswordDefault() { document.getElementById("generatedPass").style.display = "none" }
 
 function generatePassword() {
-    var passwordAlphabet_Full = "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+    // var passwordAlphabet_Full = "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
     var passwordAlphabet_Lowercase = "abcdefghijklmnopqrstuvwxyz";
     var passwordAlphabet_Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     var passwordAlphabet_Numbers = "0123456789";
-    var passwordAlphabet_Symbols = "#$%&'()*+,-./¡:;<=>?@[\]^_`{|}~";
+    var passwordAlphabet_SymbolsAmbiguous = "'()*,./¡:;<=>[\]^_`{|}~";
+    var passwordAlphabet_SymbolsNonAmbiguous = "#$%&+-?@";
 
     // Modify alphabet according to parameters
     var passwordAlphabet = "";
@@ -20,6 +21,7 @@ function generatePassword() {
     var passwordCheckbox_Uppercase = document.getElementById("check_Include_Uppercase").checked;
     var passwordCheckbox_Numbers = document.getElementById("check_Include_Numbers").checked;
     var passwordCheckbox_Symbols = document.getElementById("check_Include_Symbols").checked;
+    var passwordCheckbox_ExcludeAmbiguous = document.getElementById("check_Exclude_Ambiguous").checked;
 
     if (passwordCheckbox_Lowercase == true) {
         passwordAlphabet = passwordAlphabet + passwordAlphabet_Lowercase;
@@ -33,10 +35,13 @@ function generatePassword() {
         passwordAlphabet = passwordAlphabet + passwordAlphabet_Numbers;
     }
 
-    if (passwordCheckbox_Symbols == true) {
-        passwordAlphabet = passwordAlphabet + passwordAlphabet_Symbols;
+    if (passwordCheckbox_Symbols == true && passwordCheckbox_ExcludeAmbiguous == false) {
+        passwordAlphabet = passwordAlphabet + passwordAlphabet_SymbolsAmbiguous + passwordAlphabet_SymbolsNonAmbiguous;
     }
 
+    if (passwordCheckbox_Symbols == true && passwordCheckbox_ExcludeAmbiguous == true) {
+        passwordAlphabet = passwordAlphabet + passwordAlphabet_SymbolsNonAmbiguous;
+    }
 
     console.log(passwordAlphabet);
 
@@ -55,7 +60,7 @@ function generatePassword() {
     }
 
     var newPasswordFull = passwordAlphabet.shufflePasswordAlphabet();
-    var newPasswordFull = newPasswordFull.shufflePasswordAlphabet();
+    var newPasswordFull = newPasswordFull.shufflePasswordAlphabet() + newPasswordFull;
 
     // Shorten Password
     var passwordLength = document.getElementById("passwordLength").value;
