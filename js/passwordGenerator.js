@@ -8,7 +8,37 @@ Copyright (c) 2023 Sean Leitch | Keyelo
 function hidePasswordDefault() { document.getElementById("generatedPass").style.display = "none" }
 
 function generatePassword() {
-    var passwordAlphabet = "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+    var passwordAlphabet_Full = "#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+    var passwordAlphabet_Lowercase = "abcdefghijklmnopqrstuvwxyz";
+    var passwordAlphabet_Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var passwordAlphabet_Numbers = "0123456789";
+    var passwordAlphabet_Symbols = "#$%&'()*+,-./¡:;<=>?@[\]^_`{|}~";
+
+    // Modify alphabet according to parameters
+    var passwordAlphabet = "";
+    var passwordCheckbox_Lowercase = document.getElementById("check_Include_Lowercase").checked;
+    var passwordCheckbox_Uppercase = document.getElementById("check_Include_Uppercase").checked;
+    var passwordCheckbox_Numbers = document.getElementById("check_Include_Numbers").checked;
+    var passwordCheckbox_Symbols = document.getElementById("check_Include_Symbols").checked;
+
+    if (passwordCheckbox_Lowercase == true) {
+        passwordAlphabet = passwordAlphabet + passwordAlphabet_Lowercase;
+    }
+
+    if (passwordCheckbox_Uppercase == true) {
+        passwordAlphabet = passwordAlphabet + passwordAlphabet_Uppercase;
+    }
+
+    if (passwordCheckbox_Numbers == true) {
+        passwordAlphabet = passwordAlphabet + passwordAlphabet_Numbers;
+    }
+
+    if (passwordCheckbox_Symbols == true) {
+        passwordAlphabet = passwordAlphabet + passwordAlphabet_Symbols;
+    }
+
+
+    console.log(passwordAlphabet);
 
     // Generate Random Password Function
     String.prototype.shufflePasswordAlphabet = function() {
@@ -25,6 +55,7 @@ function generatePassword() {
     }
 
     var newPasswordFull = passwordAlphabet.shufflePasswordAlphabet();
+    var newPasswordFull = newPasswordFull.shufflePasswordAlphabet();
 
     // Shorten Password
     var passwordLength = document.getElementById("passwordLength").value;
@@ -46,6 +77,14 @@ function generatePassword() {
         var newPassword = newPasswordFull.substring(0, 15);
     } else if (passwordLength == 16) {
         var newPassword = newPasswordFull.substring(0, 16);
+    } else if (passwordLength == 17) {
+        var newPassword = newPasswordFull.substring(0, 17);
+    } else if (passwordLength == 18) {
+        var newPassword = newPasswordFull.substring(0, 18);
+    } else if (passwordLength == 19) {
+        var newPassword = newPasswordFull.substring(0, 19);
+    } else if (passwordLength == 20) {
+        var newPassword = newPasswordFull.substring(0, 20);
     }
 
     console.log(newPassword);
@@ -62,4 +101,9 @@ function copyText() {
 
 function textCopiedAlert() {
     alert("Se ha copiado la contraseña al portapapeles: \n\n" + document.getElementById("generatedPass").value);
+}
+
+function cleanText() {
+    var e = document.getElementById("generatedPass");
+    e.value = "";
 }

@@ -48,7 +48,24 @@ Copyright (c) 2023 Sean Leitch | Keyelo
               <option value="14">14</option>
               <option value="15">15</option>
               <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
             </select>
+
+            <br>
+            <input type="checkbox" id="check_Include_Lowercase" name="check_Include_Lowercase" value="includeLowercase">
+            <label for="check_Include_Lowercase"> Incluir minúsculas</label><br>
+
+            <input type="checkbox" id="check_Include_Uppercase" name="check_Include_Uppercase" value="includeUppercase">
+            <label for="check_Include_Uppercase"> Incluir mayúsculas</label><br>
+
+            <input type="checkbox" id="check_Include_Numbers" name="check_Include_Numbers" value="includeNumbers">
+            <label for="check_Include_Numbers"> Incluir números</label><br>
+
+            <input type="checkbox" id="check_Include_Symbols" name="check_Include_Symbols" value="includeSymbols">
+            <label for="check_Include_Symbols"> Incluir símbolos</label><br>
         </form>
 
         <br><br>
@@ -62,6 +79,9 @@ Copyright (c) 2023 Sean Leitch | Keyelo
         <button onclick="generatePassword();" class="btn btn-primary-passgen  mr-2 mb-2">Generar</button>
 
         <button onclick="copyText();" class="btn btn-secondary-passgen ml-2 mr-2 mb-2">Copiar Contraseña</button>
+
+        <button onclick="cleanText();" class="btn btn-secondary ml-2 mr-2 mb-2">Limpiar</button>
+
 
     </div>
 

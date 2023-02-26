@@ -61,7 +61,7 @@ html {
     color: white;
 }
 
-.btn-secondary:hover {
+.btn-secondary-passgen:hover {
     background-color: #4382ac;
     color: white !important;
 }
